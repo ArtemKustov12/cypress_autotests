@@ -1,11 +1,13 @@
 /// <reference types="Cypress" />
+/// <reference types="@cypress/xpath" />
 
 
 describe("Test Contack US form via WbdriverUni", () => {
     it("Should be able to submit a successful submition via contact us form", () => {
         // cypress code
         cy.visit('https://automationteststore.com/');
-        cy.get('.info_links_footer > :nth-child(5) > a').click();
+        //cy.get('.info_links_footer > :nth-child(5) > a').click();
+        cy.xpath("//a[contains(@href, 'contact')]").click();
         cy.get('#ContactUsFrm_first_name').type('John');
         cy.get('#ContactUsFrm_email').type('Smith@fake.xom');
         cy.get('#ContactUsFrm_enquiry').type('test enquiry');
