@@ -2,7 +2,7 @@
 
 
 describe("Test Contack US form via WbdriverUni", () => {
-    it.only("Should be able to submit a successful submition via contact us form", () => {
+    it("Should be able to submit a successful submition via contact us form", () => {
         // cypress code
         cy.visit('https://webdriveruniversity.com/Contact-Us/contactus.html');
         cy.document().should('have.property','charset').and('eq','UTF-8');
