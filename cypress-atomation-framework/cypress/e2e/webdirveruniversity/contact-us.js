@@ -26,4 +26,13 @@ describe("Test Contack US form via WbdriverUni", () => {
         cy.get('[type="submit"]').click();
         cy.get('body').contains('Error: all fields are required');
     });
+
+    it.only("Interract with a couple of tabs within the same browser window", () => {
+        // cypress code
+        cy.visit('https://webdriveruniversity.com/');
+        cy.get('#contact-us').invoke('removeAttr', 'target').click();
+        cy.get('[name="first_name"]').type('Joe');
+
+    });
+
 });

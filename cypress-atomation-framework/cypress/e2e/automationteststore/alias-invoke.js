@@ -21,8 +21,20 @@ describe("Alias and Invoke", () => {
     
     it('Calculate total of normal and sale products', () => {
         cy.visit('https://automationteststore.com/');
-        cy.get('.thumbnail').find('.oneprice').each(($el) => {
-            cy.log($el.text());
-          });        
+        // // define the amounts which are not on sale
+        // cy.get('.thumbnail').find('.oneprice').each(($el) => {
+        //     cy.log($el.text());
+        //   });
+          
+        // defeni all current amounts of the products sum them and print in the log
+        let total = 0;
+
+        cy.get('.oneprice, .pricenew').each(($el) => {
+            const priceStr = $el.text().replace('$', '');
+            const price = parseFloat(priceStr);
+            total += price;
+          }).then(() => {
+            cy.log(`Total price: $${total.toFixed(2)}`);
+          });
     });
 });
